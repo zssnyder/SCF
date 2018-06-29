@@ -14,6 +14,9 @@ class SCF extends StatelessWidget {
       theme: themeData,
       debugShowCheckedModeBanner: false,
       home: new HomePage(title: 'SCF'),
+      routes: <String, WidgetBuilder> {
+        "/0": (BuildContext context) => new HomePage(title: 'SCF')
+      },
     );
   }
 

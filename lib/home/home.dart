@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: _buildItem,
         itemCount: 3,
         ),
-      bottomNavigationBar: new SCFBottomNavBar(),
+      bottomNavigationBar: new SCFBottomNavBar(currentIndex: 0, context: context),
     );
   }
 }
