@@ -1,0 +1,1 @@
+export 'resource_card.dart';

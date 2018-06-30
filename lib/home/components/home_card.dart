@@ -10,6 +10,8 @@ class HomeCard extends StatelessWidget {
 
     return new Container(
       alignment: Alignment.center,
+      padding: EdgeInsets.all(16.0),
+      margin: EdgeInsets.all(8.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,6 +51,13 @@ class HomeCard extends StatelessWidget {
               ],
             ),
           ),
+        ],
+      ),
+      decoration: new BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: const BorderRadius.all(const Radius.circular(5.0)),
+        boxShadow: <BoxShadow>[
+          cardBoxShadow,
         ],
       ),
     );
