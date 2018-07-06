@@ -11,6 +11,8 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Account'),
+    ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
