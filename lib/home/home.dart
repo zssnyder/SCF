@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scf/core/core.dart';
 import 'components/component.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,16 +31,10 @@ class _HomePageState extends State<HomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return new PlatformScaffold(
-      appBar: new PlatformAppBar(context,
-        title: new Text(widget.title),
-      ),
-      body: new ListView.builder(
+    return  new ListView.builder(
         padding: EdgeInsets.all(16.0),
         itemBuilder: _buildItem,
-        itemCount: 3,
-        ),
-      bottomNavigationBar: new SCFBottomNavBar(currentIndex: 0, context: context),
+        itemCount: 3,      
     );
   }
 }

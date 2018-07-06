@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scf/core/core.dart';
 import 'components/component.dart';
 
 export 'components/component.dart';
@@ -14,26 +13,25 @@ class ResourcePage extends StatefulWidget {
 }
 
 class _ResourcePageState extends State<ResourcePage> {
-  
-  final int _tabIndex = 1;
+  final SliverGridDelegate _gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2);
 
-  // _ResourcePageState(this._title) : super(); 
+  void _handleResourceTap() {
+    print('Resource Card Tapped');
+  }
   
   Widget _buildItem(BuildContext context, int i) {
     return new GestureDetector(
+      onTap: () => _handleResourceTap(),
       child: new ResourceCard(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return PlatformScaffold(
-      appBar: PlatformAppBar(context, title: new Text(widget.title)),
-      body: new ListView.builder(
-        itemCount: 7,
-        itemBuilder: _buildItem,
-      ),
-      bottomNavigationBar: SCFBottomNavBar(currentIndex: _tabIndex, context: context,),
+    return GridView.builder(
+              gridDelegate: _gridDelegate,
+              itemCount: 6,
+              itemBuilder: _buildItem,
     );
   }
 }
