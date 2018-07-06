@@ -5,7 +5,7 @@ import 'package:scf/resource/resource.dart';
 import 'package:scf/core/core.dart';
 import 'package:scf/theme/theme.dart';
 
-void main() => runApp(new SCF());
+void main() => runApp(SCF());
 
 class SCF extends StatefulWidget {
 
@@ -32,26 +32,32 @@ class _SCFState extends State<SCF> {
 
       pages = [home, resource];
 
-      currentPage = pages[currentTab];
+      currentPage = home;
 
       super.initState();
     }
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'SCF',
-      theme: themeData,
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+        primaryColorBrightness: Brightness.dark,
+      ),
       debugShowCheckedModeBanner: false,
-      home: new Scaffold(
+      home: Scaffold(
+        body: currentPage,
         bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentTab,
           items: navigationItems,
-          onTap: (int i) {
+          onTap: (int newTab) {
             setState(() {
-              currentTab = i;
-              currentPage = pages[i % pages.length];
+              currentTab = newTab;
+              currentPage = pages[newTab % pages.length];
             });
           },
+        type: BottomNavigationBarType.fixed,
         ),
       ),
     );

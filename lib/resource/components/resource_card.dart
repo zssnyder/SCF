@@ -2,20 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:scf/theme/theme.dart';
 
 class ResourceCard extends StatelessWidget {
+
+  final IconData icon;
+  final Text title;
+
+  ResourceCard({@required this.icon, @required this.title}) : super();
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(40.0),
+      margin: EdgeInsets.all(8.0),
       child: Container(
         child: Center(
           child: Column(
             children: <Widget>[
-              Center(child: 
-                Icon(Icons.description,
+              Flexible(
+                fit: FlexFit.tight,
+                child: Center(
+                  child: Icon(icon,
+                    size: 50.0,
+                  ),
                 ),
               ),
               Divider(),
-              Text('Resource')
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: title,
+              ),
             ],
           ),
         ),
